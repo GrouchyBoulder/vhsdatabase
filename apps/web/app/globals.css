@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-bg text-zinc-100 font-body;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    radial-gradient(circle at top, rgba(176,38,255,0.12), transparent 40%);
+  background-size: 3px 3px, 3px 3px, auto;
+}
+
+.scanlines::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.22) 50%);
+  background-size: 100% 4px;
+  opacity: .35;
+  z-index: 50;
+}
+
+.card-glow {
+  @apply rounded-xl border border-cyan-300/20 bg-card/85 shadow-glow backdrop-blur;
+}
