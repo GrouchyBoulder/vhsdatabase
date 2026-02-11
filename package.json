@@ -1,0 +1,17 @@
+{
+  "name": "vhs-collector-database",
+  "private": true,
+  "packageManager": "pnpm@9.1.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @vhs/web --filter @vhs/api dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "typescript": "^5.7.3"
+  }
+}

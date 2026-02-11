@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  wikibase:
+    image: wikibase/wikibase:1.40
+    container_name: wikibase
+    environment:
+      DB_SERVER: wikibase-db
+      DB_NAME: wikibase
+      DB_USER: wikibase
+      DB_PASS: wikibase
+      MW_ADMIN_NAME: admin
+      MW_ADMIN_PASS: adminpass
+      MW_ADMIN_EMAIL: admin@example.com
+    ports:
+      - '8181:80'
+    depends_on:
+      - wikibase-db
+
+  wikibase-db:
+    image: mariadb:10.6
+    environment:
+      MARIADB_DATABASE: wikibase
+      MARIADB_USER: wikibase
+      MARIADB_PASSWORD: wikibase
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - wikibase-db-data:/var/lib/mysql
+
+volumes:
+  wikibase-db-data:
